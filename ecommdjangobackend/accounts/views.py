@@ -2,6 +2,7 @@ from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+from drf_spectacular.utils import extend_schema
 
 
 from .serializers import SignupSerializer, LoginSerializer
@@ -30,6 +31,7 @@ class LoginView(APIView):
 
     permission_classes = [permissions.AllowAny]
 
+    @extend_schema(request=LoginSerializer, responses=None)
     def post(self, request, *args, **kwargs):
         serializer = LoginSerializer(data=request.data, context={'request':request})
         serializer.is_valid(raise_exception=True)
@@ -42,4 +44,4 @@ class LoginView(APIView):
             'email': user.email,
             'access': str(refresh.access_token),
             'refresh': str(refresh),
-        }, status=status.HTTP_200_CREATED)
+        }, status=status.HTTP_200_OK)
