@@ -15,4 +15,4 @@ class SubcategoryViewSet(viewsets.ModelViewSet):
     queryset = Subcategory.objects.all()
     serializer_class = SubcategorySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    parser_classes=[parsers.MutliPartParser, parsers.FormParser]    
+    parser_classes=[parsers.MultiPartParser, parsers.FormParser]    
