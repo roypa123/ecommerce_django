@@ -1,4 +1,4 @@
-from rest_framework.routes import DefaultRouter
+from rest_framework.routers import DefaultRouter
 
 from .views import ProductViewSet
 
