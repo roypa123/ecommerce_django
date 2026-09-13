@@ -10,3 +10,8 @@ export interface AuthResponse{
     access: string;
     refresh: string;
 }
+
+export interface LoginPayload {
+    email: string;
+    password: string;
+}
