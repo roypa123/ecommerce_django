@@ -1,12 +1,17 @@
 import "./App.css";
+
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import AppRouter from "./routing/AppRouter";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <TooltipProvider>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button onClick={() => alert("Clicked!")}>Click me</Button>
+      <QueryClientProvider client={queryClient}>
+         <AppRouter />
+      </QueryClientProvider>
     </TooltipProvider>
   );
 }
