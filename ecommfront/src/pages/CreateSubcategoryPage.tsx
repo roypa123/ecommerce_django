@@ -41,7 +41,7 @@ export default function CreateSubcategoryPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="category">Category</Label>
-            <Select value={categoryId} onValueChange={setCategoryId} required>
+            <Select value={categoryId} onValueChange={(value) => setCategoryId(value ?? "")} required>
               <SelectTrigger id="category" className="w-full">
                 <SelectValue placeholder={categoriesLoading ? "Loading..." : "Select a category"} />
               </SelectTrigger>

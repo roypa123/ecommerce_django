@@ -26,6 +26,15 @@ export default function CreateCategoryPage() {
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
+            <Label htmlFor="name">Name</Label>
+            <Input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="space-y-2">
             <Label htmlFor="image">Image</Label>
             <Input
               id="image"
@@ -35,11 +44,14 @@ export default function CreateCategoryPage() {
               required
             />
           </div>
-          {error && <p className="text-sm text-destructive">Failed to create category.</p>}
-           <Button type="submit" className="w-full" disabled={isPending}>
-              {isPending ? "Creating..." : "Create Category" }
-
-           </Button>
+          {error && (
+            <p className="text-sm text-destructive">
+              Failed to create category.
+            </p>
+          )}
+          <Button type="submit" className="w-full" disabled={isPending}>
+            {isPending ? "Creating..." : "Create Category"}
+          </Button>
         </form>
       </CardContent>
     </Card>

@@ -22,7 +22,7 @@ export interface CreateCategoryPayload {
     image: File;
 }
 
-export interface CreateCategoryPayload {
+export interface CreateSubcategoryPayload {
     category: number;
     name: string;
     image:File
