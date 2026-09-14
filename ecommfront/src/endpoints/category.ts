@@ -27,5 +27,11 @@ export const createCategoryRequest = async (
 export const createSubcategoryRequest = async (
     payload: CreateSubcategoryPayload
 ): Promise<Subcategory> => {
-    
+  const formData = new FormData();
+  formData.append("category", String(payload.category));
+  formData.append("name", payload.name);
+  formData.append("image", payload.image);
+
+  const { data } = await apiclient.post<Subcategory>("/subcategories", formData);
+  return data;
 }
