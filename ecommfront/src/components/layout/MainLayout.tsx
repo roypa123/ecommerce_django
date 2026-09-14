@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, LogOut } from "lucide-react";
 import { useAuthStore } from "@/context/authStore";
+import { LayoutDashboard, LogOut, FolderPlus, FolderTree } from "lucide-react";
 
 export default function MainLayout() {
   const navigate = useNavigate();
@@ -39,7 +39,9 @@ export default function MainLayout() {
             </Avatar>
             <div className="flex flex-col overflow-hidden">
               <span className="text-sm font-medium truncate">{name}</span>
-              <span className="text-xs text-muted-foreground truncate">{email}</span>
+              <span className="text-xs text-muted-foreground truncate">
+                {email}
+              </span>
             </div>
           </div>
         </SidebarHeader>
@@ -55,12 +57,40 @@ export default function MainLayout() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton onClick={() => navigate("/dashboard")}>
+                    <LayoutDashboard />
+                    <span>Dashboard</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    onClick={() => navigate("/categories/create")}
+                  >
+                    <FolderPlus />
+                    <span>Create Category</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    onClick={() => navigate("/subcategories/create")}
+                  >
+                    <FolderTree />
+                    <span>Create Subcategory</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
 
         <SidebarFooter>
-          <Button variant="ghost" className="w-full justify-start gap-2" onClick={handleLogout}>
+          <Button
+            variant="ghost"
+            className="w-full justify-start gap-2"
+            onClick={handleLogout}
+          >
             <LogOut className="h-4 w-4" />
             Logout
           </Button>
