@@ -16,7 +16,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/context/authStore";
-import { LayoutDashboard, LogOut, FolderPlus, FolderTree } from "lucide-react";
+import { LayoutDashboard, LogOut, FolderPlus, FolderTree, PackagePlus } from "lucide-react";
 
 export default function MainLayout() {
   const navigate = useNavigate();
@@ -73,6 +73,14 @@ export default function MainLayout() {
                   >
                     <FolderTree />
                     <span>Create Subcategory</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    onClick={() => navigate("/products/create")}
+                  >
+                    <PackagePlus />
+                    <span>Create Product</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
