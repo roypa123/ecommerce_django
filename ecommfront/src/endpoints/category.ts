@@ -32,6 +32,6 @@ export const createSubcategoryRequest = async (
   formData.append("name", payload.name);
   formData.append("image", payload.image);
 
-  const { data } = await apiClient.post<Subcategory>("/subcategories", formData);
+  const { data } = await apiClient.post<Subcategory>("/subcategories/", formData);
   return data;
 }

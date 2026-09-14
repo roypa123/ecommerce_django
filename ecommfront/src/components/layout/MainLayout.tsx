@@ -58,12 +58,7 @@ export default function MainLayout() {
                 </SidebarMenuItem>
               </SidebarMenu>
               <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton onClick={() => navigate("/dashboard")}>
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+               
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     onClick={() => navigate("/categories/create")}
