@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-bq4%v#x#c#ecs8e(!5my5g05%!n&dfcfo$0bwpnalru_dd&mha
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['162.35.106.60']
+ALLOWED_HOSTS = ['162.35.106.60','localhost', '127.0.0.1','http://ecommercetest-minio-937275-162-35-106-60.sslip.io']
 
 
 # Application definition
